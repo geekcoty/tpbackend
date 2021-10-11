@@ -1,4 +1,5 @@
 function checkAuth(req, res, next) {
+	console.log(req.user)
 	if (req.user) {
 		console.log('user logged');
 		res.sendStatus(200);

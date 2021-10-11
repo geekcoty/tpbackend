@@ -11,10 +11,10 @@ const passport = require('passport');
 const session = require('express-session');
 
 const sessionMiddleware = session({
-	name: 'tpbackend_test',
+	name: 'tpbackend',
 	secret: 's3cr3t_k3y',
-	saveUninitialized: false,
-	resave: false
+	resave: false,
+	saveUninitialized: false
 });
 const app = express();
 

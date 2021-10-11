@@ -33,8 +33,8 @@ passport.serializeUser((user, cb) => {
 	cb(null, user.name);
 });
 
-passport.deserializeUser(async (name, cb) => {
-	const data = await userInstance.getByName(name);
+passport.deserializeUser(async (username, cb) => {
+	const data = await userInstance.getByName(username);
 
 	cb(null, data);
 });
