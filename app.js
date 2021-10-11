@@ -6,7 +6,6 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 
-const passportConfig = require('./passport');
 const passport = require('passport');
 const session = require('express-session');
 
@@ -32,6 +31,7 @@ app.use(sessionMiddleware);
 
 app.use(passport.initialize());
 app.use(passport.session());
+const passportConfig = require('./passport');
 
 app.use('/', indexRouter);
 
