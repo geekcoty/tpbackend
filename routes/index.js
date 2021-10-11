@@ -37,18 +37,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res, next) {
-	console.log(req.user)
 	return res.sendStatus(200);
 });
 
-router.get('/verify', checkAuth, checkAdmin, function(req, res, next) {
-	console.log(req.user)
+router.get('/verify', checkAuth, checkAdmin,function(req, res, next) {
 	return res.sendStatus(200)
 });
 
 // Movies
 //Muestra un array con todas las películas. Solo se puede acceder autenticado
-router.get('/movies', checkAuth, function(req, res, next) {
+router.get('/movies',checkAuth, checkAdmin,function(req, res, next) {
 	MovieInstance.getMovie(req, res);
 });
 
