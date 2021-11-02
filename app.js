@@ -13,7 +13,8 @@ const sessionMiddleware = session({
 	name: 'tpbackend',
 	secret: 's3cr3t_k3y',
 	resave: false,
-	saveUninitialized: false
+	saveUninitialized: false,
+	cookie: { _expires: 60000000 }
 });
 const app = express();
 

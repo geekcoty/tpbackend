@@ -56,7 +56,7 @@ router.get('/movies/:id', checkAuth, function(req, res, next) {
 });
 
 //Sirve para crear una película en la base de datos. Necesita estar autenticado y ser admin para que se ejecute
-router.post('/movies/upload', upload.single('cover'),function(req, res, next) {
+router.post('/movies/upload', checkAuth, checkAdmin, upload.single('cover'),function(req, res, next) {
 console.log(req.user)
 	MovieInstance.addMovie(req, res);
 	return res.json({
