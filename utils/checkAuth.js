@@ -1,6 +1,6 @@
 function checkAuth(req, res, next) {
 	if(req.user) {
-		console.log(req.user)
+		console.log(req.user,"logged user")
 		next()
 	} 
 	else {
