@@ -24,26 +24,26 @@ class MovieController {
 		}
 	}
 
- async addMovie(req, res) {
-    const newMovie = req.body;
-    const media = req.file.path;
-//aca leemos el path del archivo
+	async addMovie(req, res) {
+		const newMovie = req.body;
+		const media = req.file.path;
+		//aca leemos el path del archivo
 
-    if (newMovie && media) {
-      try {
-//acá guardamos la propiedad media
-        const newEntry = await this.movieService.addMovie({
-          ...newMovie,
-          media
-        });
-        this.movies.push(newEntry);
-      } catch (error) {
-        res.sendStatus(404);
-      }
-    } else {
-      !newMovie ? res.sendStatus(400) : res.sendStatus(404);
-    }
-  }
+		if (newMovie && media) {
+			try {
+				//acá guardamos la propiedad media
+				const newEntry = await this.movieService.addMovie({
+					...newMovie,
+					media
+				});
+				this.movies.push(newEntry);
+			} catch (error) {
+				res.sendStatus(404);
+			}
+		} else {
+			!newMovie ? res.sendStatus(400) : res.sendStatus(404);
+		}
+	}
 
 	async updateMovie(req, res) {
 		const { id } = req.params;

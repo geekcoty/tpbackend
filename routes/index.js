@@ -40,13 +40,13 @@ router.post('/login', passport.authenticate('local'), function(req, res, next) {
 	return res.sendStatus(200);
 });
 
-router.get('/verify', checkAuth, checkAdmin,function(req, res, next) {
-	return res.sendStatus(200)
+router.get('/verify', checkAuth, checkAdmin, function(req, res, next) {
+	return res.sendStatus(200);
 });
 
 // Movies
 //Muestra un array con todas las películas. Solo se puede acceder autenticado
-router.get('/movies',checkAuth, checkAdmin,function(req, res, next) {
+router.get('/movies', checkAuth, checkAdmin, function(req, res, next) {
 	MovieInstance.getMovie(req, res);
 });
 
@@ -56,8 +56,8 @@ router.get('/movies/:id', checkAuth, function(req, res, next) {
 });
 
 //Sirve para crear una película en la base de datos. Necesita estar autenticado y ser admin para que se ejecute
-router.post('/movies/upload', checkAuth, checkAdmin, upload.single('cover'),function(req, res, next) {
-console.log(req.user)
+router.post('/movies/upload', checkAuth, checkAdmin, upload.single('cover'), function(req, res, next) {
+	console.log(req.user);
 	MovieInstance.addMovie(req, res);
 	return res.json({
 		file: req.file,
