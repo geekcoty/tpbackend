@@ -14,7 +14,8 @@ class MovieController {
 		if (id) {
 			try {
 				const movie = await this.movieService.searchMovie(id);
-				return res.send(200).status(movie);
+				console.log(movie)
+				return res.sendStatus(200);
 			} catch (error) {
 				console.log(error);
 				return res.sendStatus(400);
